@@ -1,5 +1,5 @@
 {
-  "name": "enstyle",
+  "name": "icon",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -10,8 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.4",
-    "materialize-css": "^1.0.0-rc.2"
+    "materialize-css": "^1.0.0-rc.2",
     "sass": "^1.14.3"
   }
 }
