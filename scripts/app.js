@@ -32,7 +32,22 @@ screenshotButton.onclick = video.onclick = function() {
   screenshotContainer.appendChild(newImg);
 
   newImg.src = canvas.toDataURL("image/webp");
-  console.log(newImg.src);
+  const test = "hello";
+  fetch("http://localhost:3000/searchForProduct", {
+    mode: "cors",
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify({ payload: newImg.src })
+  })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log(data);
+    });
 };
 
 function handleSuccess(stream) {
