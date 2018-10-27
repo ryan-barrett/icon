@@ -19,6 +19,11 @@
 .main-content {
     width: 85%;
     height: 90%;
+
+  @media only screen and (min-width : 500px) {
+    width: 35%;
+    height: 35%;
+  }
 }
 
 #screenshot-container {
