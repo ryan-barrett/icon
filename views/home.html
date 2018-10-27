@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Icon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="../node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/shared.css" />
@@ -12,7 +13,7 @@
     <script src="../scripts/home.js"></script>
 </head>
 <body>
-<nav class="white" role="navigation">
+<nav role="navigation">
     <div class="nav-wrapper container">
         <a id="logo-container" href="#" class="brand-logo">Icon</a>
         <ul class="right hide-on-med-and-down">
@@ -30,12 +31,12 @@
     <div class="section no-pad-bot">
         <div class="container">
             <br><br>
-            <h1 class="header center teal-text text-lighten-2">Icon</h1>
+            <h1 id="main-center-text" class="header center text-lighten-2">Icon</h1>
             <div class="row center">
                 <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
             </div>
-            <div class="row center">
-                <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get
+            <div id="get-started" class="row center">
+                <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light lighten-1">Get
                     Started</a>
             </div>
             <br><br>
@@ -54,34 +55,32 @@
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-                    <h5 class="center">Speeds up development</h5>
+                    <h5 class="center">Increase Site Traffic</h5>
 
-                    <p class="light">We did most of the heavy lifting for you to provide a default stylings that
-                        incorporate our custom components. Additionally, we refined animations and transitions to
-                        provide a smoother experience for developers.</p>
+                    <p class="light">In August 2014, publicly-traded e-tailer Zalando tested an image recognition app in Germany, enabling users to visually
+                    search its catalogue of 150,000 products, in a bid to better monetise mobile users, which at the end of Q2, accounted
+                    for 41 percent of visits to the site.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">camera_alt</i></h2>
+                    <h5 class="center">Emerging Technology</h5>
+
+                    <p class="light">Apps like Snap Fashion and ASAP54 were unsustainable because they did not have access to the technology we do today.
+                    Users left because the results returned did not resemble the picture they took. With Google Vision API, we can deliver
+                    results with more percision than any Photo to Fashion app has ever before.</p>
                 </div>
             </div>
 
             <div class="col s12 m4">
                 <div class="icon-block">
                     <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                    <h5 class="center">User Experience Focused</h5>
+                    <h5 class="center">Growing Market</h5>
 
-                    <p class="light">By utilizing elements and principles of Material Design, we were able to create a
-                        framework that incorporates components and animations that provide more feedback to users.
-                        Additionally, a single underlying responsive system across all platforms allow for a more
-                        unified user experience.</p>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-                    <h5 class="center">Easy to work with</h5>
-
-                    <p class="light">We have provided detailed documentation as well as specific code examples to help
-                        new users get started. We are also always open to feedback and can answer any questions a user
-                        may have about Materialize.</p>
+                    <p class="light">Cumulative data compiled within The Fashion and Apparel Industry Report paints a bright portrait with worldwide Fashion
+                    E-Commerce revenue expected to rise from $481.2 billion in 2018 to $712.9 billion by 2022.</p>
                 </div>
             </div>
         </div>
@@ -133,18 +132,18 @@
     <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
 </div>
 
-<footer class="page-footer teal">
+<footer class="page-footer">
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Company Bio</h5>
+                <h5 class="white-text">About Us</h5>
                 <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's
                     our full time job. Any amount would help support and continue development on this project and is
                     greatly appreciated.</p>
 
 
             </div>
-            <div class="col l3 s12">
+            <!-- <div class="col l3 s12">
                 <h5 class="white-text">Settings</h5>
                 <ul>
                     <li><a class="white-text" href="#!">Link 1</a></li>
@@ -152,21 +151,19 @@
                     <li><a class="white-text" href="#!">Link 3</a></li>
                     <li><a class="white-text" href="#!">Link 4</a></li>
                 </ul>
-            </div>
+            </div> -->
             <div class="col l3 s12">
                 <h5 class="white-text">Connect</h5>
-                <ul>
-                    <li><a class="white-text" href="#!">Link 1</a></li>
-                    <li><a class="white-text" href="#!">Link 2</a></li>
-                    <li><a class="white-text" href="#!">Link 3</a></li>
-                    <li><a class="white-text" href="#!">Link 4</a></li>
-                </ul>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-linkedin"></a>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+            Made by <a class="brown-text text-lighten-3" href="http://materializecss.com"></a>
         </div>
     </div>
 </footer>
