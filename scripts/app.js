@@ -15,6 +15,12 @@ const screenshotButton = document.querySelector("#screenshot-button");
 const canvas = document.createElement("canvas");
 
 screenshotButton.onclick = video.onclick = function() {
+  //clear any previous screenshots
+  const screenshotContainer = document.querySelector("#screenshot-container");
+  if (screenshotContainer.firstChild !== null) {
+    screenshotContainer.firstChild.remove();
+  }
+
   // Other browsers will fall back to image/png
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -23,9 +29,8 @@ screenshotButton.onclick = video.onclick = function() {
   //create and customize new img element
   const newImg = document.createElement("img");
   newImg.classList.add("main-content", "main-button");
-  const screenshotContainer = document.querySelector("#screenshot-container");
   screenshotContainer.appendChild(newImg);
-  
+
   newImg.src = canvas.toDataURL("image/webp");
 };
 
