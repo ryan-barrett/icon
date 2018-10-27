@@ -24,4 +24,10 @@
 #screenshot-container {
   margin-bottom: 1em; }
 
+.back-container {
+  display: flex;
+  justify-content: flex-start;
+  font-size: 1.5em;
+  margin-left: 1em; }
+
 /*# sourceMappingURL=app.css.map */

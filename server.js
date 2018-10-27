@@ -12,7 +12,6 @@ app.get("/test", (req, res) => {
 
 app.post("/searchForProduct", (req, res, next) => {
   let image = req.body;
-  console.log(image);
   res.send(image);
 });
 
