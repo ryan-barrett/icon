@@ -8,7 +8,7 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: white;
 }
 
 p {
@@ -54,4 +54,13 @@ p {
 
 footer.page-footer {
   margin: 0;
+  background-color: #24292e;
+}
+
+nav {
+    background-color: #24292e;
+}
+
+.material-icons {
+    color: white;
 }

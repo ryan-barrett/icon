@@ -32,6 +32,7 @@ screenshotButton.onclick = video.onclick = function() {
   screenshotContainer.appendChild(newImg);
 
   newImg.src = canvas.toDataURL("image/webp");
+  console.log(newImg.src);
 };
 
 function handleSuccess(stream) {
