@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,30 +11,32 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/compiled/shared.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="../styles/compiled/app.css" />
 </head>
+
 <body>
     <nav role="navigation">
+        <div class="back-container">
+            <a href="file:///Users/ryan-barrett/projects/enstyle/views/home.html">Back</a>
+        </div>
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Icon</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-    
-            <ul id="nav-mobile" class="sidenav">
-                <li><a href="#">Navbar Link</a></li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <!-- <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a> -->  
         </div>
     </nav>
-    <div class="content-container">
-        <video class="main-content" autoplay></video>
-    </div>
-    <div class="content-container" id="screenshot-container"></div>
-    <canvas style="display:none;"></canvas>
-    <div class="button-container">
-        <button type="button" id="screenshot-button">Take Photo</button>
-    </div>
-    <script src="../scripts/app.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="../node_modules/materialize-css/dist/js/materialize.js"></script>
+    <div class="container">
+        <br><br>
+        <h1 style="margin-top: -.5em; margin-bottom: -.5em;" id="main-center-text" class="header center text-lighten-2"><img src="../assets/images/IconPicture.PNG"></h1>
+        <div class="row center splash-text">
+        </div>
+        <div class="content-container">
+            <video class="main-content" autoplay></video>
+        </div>
+        <div class="content-container" id="screenshot-container"></div>
+        <canvas style="display:none;"></canvas>
+        <div class="button-container">
+            <button type="button" id="screenshot-button">Take Photo</button>
+        </div>
+        <script src="../scripts/app.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="../node_modules/materialize-css/dist/js/materialize.js"></script>
 </body>
+
 </html>
