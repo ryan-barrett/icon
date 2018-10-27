@@ -1,0 +1,16 @@
+{
+  "name": "google-api-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/vision": "^0.22.1",
+    "algoliasearch": "^3.30.0",
+    "googleapis": "^34.0.0"
+  }
+}
