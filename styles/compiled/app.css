@@ -1,0 +1,27 @@
+.content-container {
+  margin-top: 2.5em;
+  display: flex;
+  justify-content: center; }
+
+.button-container {
+  display: flex;
+  justify-content: center; }
+
+#screenshot-button {
+  background-color: #008CBA;
+  color: white;
+  height: 2em;
+  width: 30%; }
+
+.main-content {
+  width: 85%;
+  height: 90%; }
+  @media only screen and (min-width: 500px) {
+    .main-content {
+      width: 35%;
+      height: 35%; } }
+
+#screenshot-container {
+  margin-bottom: 1em; }
+
+/*# sourceMappingURL=app.css.map */
