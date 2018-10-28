@@ -1,14 +1,20 @@
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
+const express = require("express");
+const cors = require("cors");
+const app = express();
+const bodyParser = require("body-parser");
 
-app.use(bodyParser.json())
+app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }), cors());
 
-app.post('/searchForProduct', (req, res) => {
-    let image = req.body
-    console.log(image);
+app.get("/test", (req, res) => {
+    console.log("test");
+    res.send("hello");
 })
+
+app.post("/searchForProduct", (req, res, next) => {
+  let image = req.body;
+  res.send(image);
+});
 
 app.listen(3000, () => {
-    console.log('Running on port 3000')
-})
+  console.log("Running on port 3000");
+});
