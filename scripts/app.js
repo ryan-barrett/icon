@@ -102,6 +102,7 @@ screenshotButton.onclick = video.onclick = function() {
       return response.json();
     })
     .then(data => {
+      console.log('test')
       console.log(data);
     });
 };
