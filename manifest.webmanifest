@@ -11,5 +11,5 @@
     ],
     "name": "Icon",
     "short_name": "Icon",
-    "start_url": "views/home.html"
+    "start_url": "index.html"
 }
