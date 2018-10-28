@@ -102,8 +102,7 @@ screenshotButton.onclick = video.onclick = function() {
       console.log('test')
       return response.json();
     })
-    .then(data => {
-      console.log('test')
-      console.log(data);
-    });
+    .catch(err => {
+      console.log(err)  
+    })
 };
