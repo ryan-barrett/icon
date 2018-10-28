@@ -11,6 +11,8 @@
   "dependencies": {
     "@google-cloud/vision": "^0.22.1",
     "algoliasearch": "^3.30.0",
-    "googleapis": "^34.0.0"
+    "csvtojson": "^2.0.8",
+    "googleapis": "^34.0.0",
+    "request": "^2.88.0"
   }
 }
