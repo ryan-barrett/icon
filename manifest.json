@@ -1,0 +1,15 @@
+{
+    "short_name": "Icon",
+    "name": "Icon",
+    "icons": [
+        {
+            "src": "../assets/images/homescreen-icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "index.html",
+    "background_color": "#000",
+    "Theme_color": "#536878",
+    "display": "standalone"
+}
