@@ -1,7 +1,7 @@
 # Icon
 <p>Fashion consumers are seeking new ways to find fashion that fits their personality and budget. Brand loyalty is declining, and there are growing opportunities for cross-platform applications to address market demand. Fashion is the business of image and our app Icon personalizes the shopping experience by using Google Vision to generate links to retailers from pictures you upload from your Camera, Gallery, Pinterest Boards, and Instagram profile. The more you submit, the better profile we can can build for our personalized recommendations. Searching by picture will return results from all E-Commerce retailers whereas recommendations will be skewed to small businesses.</p>
 
-<h3><a href="https://drive.google.com/file/d/1u0hfxBe7PTtvjWH6SAVFLcaKe68AEPuf/view?usp=sharing">Business Plan</a></h3>
+<h2><a href="https://drive.google.com/file/d/1u0hfxBe7PTtvjWH6SAVFLcaKe68AEPuf/view?usp=sharing">Business Plan</a></h2>
 
 
 <p align="center"><img src="https://pbs.twimg.com/profile_images/1002529004828569600/rg9VJtAU_400x400.jpg">
