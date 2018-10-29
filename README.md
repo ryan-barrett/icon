@@ -7,7 +7,7 @@
 <p align="center"><img src="https://pbs.twimg.com/profile_images/1002529004828569600/rg9VJtAU_400x400.jpg">
 <img height="400" width="400" src="https://i.imgur.com/qvjjaWx.jpg"></p>
 
-# Collaborators
+# The Team
 
 <ul>
   <li><a href="https://www.linkedin.com/in/ryan-walden-28771a8b/">Ryan Walden (Business Marketing)</a></li>
