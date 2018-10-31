@@ -11,6 +11,7 @@
 
 <ul>
   <li><a href="https://www.linkedin.com/in/ryan-walden-28771a8b/">Ryan Walden (Business Marketing)</a></li>
+    <li><a href="">Daryl Chan (Business Marketing)</a></li>
   <li><a href="https://github.com/Poliphria">Christian Moronta (Back-End Developer)</a></li>
   <li><a href="https://github.com/RobotRoberto">Robert Lin (Back-End Developer)</a></li>
   <li><a href="https://github.com/DanWin94">Danny Nguyen (Back-End Developer)</a></li>
