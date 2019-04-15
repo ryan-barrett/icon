@@ -4,6 +4,9 @@ const app = express();
 const bodyParser = require("body-parser");
 const vision = require('@google-cloud/vision').v1p3beta1;
 
+// set the port of our application
+// process.env.PORT lets the port be set by Heroku
+var port = process.env.PORT || 3000;
 
 app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }), cors());
 
@@ -33,6 +36,6 @@ app.post("/searchForProduct", (req, res, next) => {
     });
 });
 
-app.listen(3000, () => {
-  console.log("Running on port 3000");
+app.listen(port, function () {
+  console.log('Our app is running on http://localhost:' + port);
 });
