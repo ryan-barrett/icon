@@ -99,8 +99,9 @@ screenshotButton.onclick = video.onclick = function() {
     body: JSON.stringify({ payload: newImg.src })
   })
     .then(response => {
-      console.log('test')
       return response.json();
+    }).then(data => {
+      console.log(data);
     })
     .catch(err => {
       console.log(err)  
