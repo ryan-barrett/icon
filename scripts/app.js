@@ -52,7 +52,6 @@ function getStream() {
 
 const captureVideoButton = document.querySelector("#screenshot.capture-button");
 const screenshotButton = document.querySelector("#screenshot-button");
-// const img = document.querySelector("#screenshot-target");
 
 const canvas = document.createElement("canvas");
 
@@ -71,12 +70,6 @@ function handleError(error) {
 }
 
 screenshotButton.onclick = video.onclick = function() {
-  //clear any previous screenshots
-  const screenshotContainer = document.querySelector("#screenshot-container");
-  if (screenshotContainer.firstChild !== null) {
-    screenshotContainer.firstChild.remove();
-  }
-
   // Other browsers will fall back to image/png
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
@@ -84,12 +77,9 @@ screenshotButton.onclick = video.onclick = function() {
 
   //create and customize new img element
   const newImg = document.createElement("img");
-  newImg.classList.add("main-content", "main-button");
-  screenshotContainer.appendChild(newImg);
-
   newImg.src = canvas.toDataURL("image/webp");
-  const test = "hello";
-  fetch("http://localhost:3000/searchForProduct", {
+
+  fetch("https://icon-server.herokuapp.com/searchForProduct", {
     mode: "cors",
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -100,10 +90,12 @@ screenshotButton.onclick = video.onclick = function() {
   })
     .then(response => {
       return response.json();
-    }).then(data => {
+    })
+    .then(data => {
       console.log(data);
     })
     .catch(err => {
-      console.log(err)  
-    })
+      console.log(err);
+      alert(err);
+    });
 };
