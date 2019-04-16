@@ -1,4 +1,6 @@
-const initCamera = () => {
+initCamera();
+
+function initCamera() {
   const constraints = {
     video: true
   };
@@ -67,7 +69,7 @@ const initCamera = () => {
     console.log("Error: ", error);
   }
 
-  const setListeners = () => {
+  function setListeners() {
     screenshotButton.onclick = video.onclick = function() {
       // Other browsers will fall back to image/png
       canvas.width = video.videoWidth;
@@ -97,7 +99,6 @@ const initCamera = () => {
           alert(err);
         });
     };
-  };
+  }
   setListeners();
-};
-initCamera();
+}
