@@ -3,6 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initCamera() {
+  const constraints = {
+    video: true
+  };
+
   let currentDevice = {
     deviceId: ''
   };
@@ -72,6 +76,12 @@ function initCamera() {
 
 function setListeners(screenshotButton, video, canvas) {
   screenshotButton.onclick = video.onclick = function() {
+    clearVideo();
+    const loader = document.createElement('div');
+    loader.classList.add('loader');
+    const contentContainer = document.querySelector('.content-container');
+    contentContainer.appendChild(loader);
+
     // Other browsers will fall back to image/png
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -82,7 +92,6 @@ function setListeners(screenshotButton, video, canvas) {
     newImg.src = canvas.toDataURL('image/webp');
 
     const getMatches = throttled(5000, () => {
-      screenshotButton.remove();
       fetch('https://icon-server.herokuapp.com/searchForProduct', {
         mode: 'cors',
         headers: {
@@ -96,6 +105,8 @@ function setListeners(screenshotButton, video, canvas) {
           return response.json();
         })
         .then(data => {
+          const loader = document.querySelector('.loader');
+          loader.remove();
           displayResults(data);
         })
         .catch(err => {
@@ -129,6 +140,8 @@ function displayResults(results) {
 function clearVideo() {
   const mainContent = document.querySelector('.main-content');
   mainContent.remove();
+  const screenshotButton = document.querySelector('#screenshot-button');
+  screenshotButton.remove();
 }
 
 //throttle frontend requests
