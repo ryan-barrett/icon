@@ -81,24 +81,28 @@ function setListeners(screenshotButton, video, canvas) {
     const newImg = document.createElement('img');
     newImg.src = canvas.toDataURL('image/webp');
 
-    fetch('https://icon-server.herokuapp.com/searchForProduct', {
-      mode: 'cors',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      },
-      method: 'POST',
-      body: JSON.stringify({ payload: newImg.src })
-    })
-      .then(response => {
-        return response.json();
+    const getMatches = throttled(5000, () => {
+      screenshotButton.remove();
+      fetch('https://icon-server.herokuapp.com/searchForProduct', {
+        mode: 'cors',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify({ payload: newImg.src })
       })
-      .then(data => {
-        displayResults(data);
-      })
-      .catch(err => {
-        alert(err);
-      });
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          displayResults(data);
+        })
+        .catch(err => {
+          alert(err);
+        });
+    });
+    getMatches();
   };
 }
 
@@ -106,11 +110,11 @@ function displayResults(results) {
   clearVideo();
   const container = document.querySelector('.content-container');
   const resultsList = document.createElement('div');
-  resultsList.classList.add('grid-container')
+  resultsList.classList.add('grid-container');
   results.forEach(item => {
     const resultDiv = document.createElement('div');
     resultDiv.classList.add('grid-item');
-    resultDiv.innerHTML = `${item.description}`
+    resultDiv.innerHTML = `${item.description}`;
     resultsList.appendChild(resultDiv);
   });
   container.appendChild(resultsList);
@@ -125,6 +129,17 @@ function displayResults(results) {
 function clearVideo() {
   const mainContent = document.querySelector('.main-content');
   mainContent.remove();
-  const screenshotButton = document.querySelector('#screenshot-button');
-  screenshotButton.remove();
+}
+
+//throttle frontend requests
+function throttled(delay, fn) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = (new Date).getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return fn(...args);
+  }
 }

@@ -16,6 +16,18 @@ const limiter = rateLimit({
   message: "Too many requests. Wait an hour and try again"
 });
 
+//only allow requests from icon
+const whitelist = ['https://ryan-barrett.github.io/icon/'];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
 //compress all responses
 app.use(compression());
 
@@ -23,7 +35,7 @@ app.use(compression());
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 3000;
 
-app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }), cors());
+app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }), cors(corsOptions));
 
 app.get("/test", (req, res) => {
   console.log("test");
