@@ -1,15 +1,13 @@
-initCamera();
+document.addEventListener('DOMContentLoaded', function() {
+  initCamera();
+});
 
 function initCamera() {
-  const constraints = {
-    video: true
-  };
-
   let currentDevice = {
-    deviceId: ""
+    deviceId: ''
   };
 
-  const video = document.querySelector("video");
+  const video = document.querySelector('video');
 
   navigator.mediaDevices
     .enumerateDevices()
@@ -19,7 +17,7 @@ function initCamera() {
   function gotDevices(deviceInfos) {
     let cameras = [];
     deviceInfos.forEach(device => {
-      if (device.kind === "videoinput") {
+      if (device.kind === 'videoinput') {
         cameras.push(device);
       }
     });
@@ -51,9 +49,9 @@ function initCamera() {
       .catch(handleError);
   }
 
-  const screenshotButton = document.querySelector("#screenshot-button");
+  const screenshotButton = document.querySelector('#screenshot-button');
 
-  const canvas = document.createElement("canvas");
+  const canvas = document.createElement('canvas');
 
   function handleSuccess(stream) {
     screenshotButton.disabled = false;
@@ -66,39 +64,67 @@ function initCamera() {
   }
 
   function handleError(error) {
-    console.log("Error: ", error);
+    console.log('Error: ', error);
   }
+  setListeners(screenshotButton, video, canvas);
+  screenshotButton.disabled = false;
+}
 
-  function setListeners() {
-    screenshotButton.onclick = video.onclick = function() {
-      // Other browsers will fall back to image/png
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
-      canvas.getContext("2d").drawImage(video, 0, 0);
+function setListeners(screenshotButton, video, canvas) {
+  screenshotButton.onclick = video.onclick = function() {
+    // Other browsers will fall back to image/png
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
 
-      //create and customize new img element
-      const newImg = document.createElement("img");
-      newImg.src = canvas.toDataURL("image/webp");
+    //create and customize new img element
+    const newImg = document.createElement('img');
+    newImg.src = canvas.toDataURL('image/webp');
 
-      fetch("https://icon-server.herokuapp.com/searchForProduct", {
-        mode: "cors",
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json"
-        },
-        method: "POST",
-        body: JSON.stringify({ payload: newImg.src })
+    fetch('https://icon-server.herokuapp.com/searchForProduct', {
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify({ payload: newImg.src })
+    })
+      .then(response => {
+        return response.json();
       })
-        .then(response => {
-          return response.json();
-        })
-        .then(data => {
-          console.log(data);
-        })
-        .catch(err => {
-          alert(err);
-        });
-    };
-  }
-  setListeners();
+      .then(data => {
+        displayResults(data);
+      })
+      .catch(err => {
+        alert(err);
+      });
+  };
+}
+
+function displayResults(results) {
+  clearVideo();
+  const container = document.querySelector('.content-container');
+  const resultsList = document.createElement('div');
+  resultsList.classList.add('grid-container')
+  results.forEach(item => {
+    const resultDiv = document.createElement('div');
+    resultDiv.classList.add('grid-item');
+    resultDiv.innerHTML = `${item.description}`
+    resultsList.appendChild(resultDiv);
+  });
+  container.appendChild(resultsList);
+  const buttonContainer = document.querySelector('.button-container');
+  const resetButton = document.createElement('button');
+  resetButton.innerText = 'Reset';
+  resetButton.id = 'screenshot-button';
+  resetButton.onclick = () => location.reload();
+  buttonContainer.appendChild(resetButton);
+}
+
+function clearVideo() {
+  const mainContent = document.querySelector('.main-content');
+  mainContent.remove();
+  const screenshotButton = document.querySelector('#screenshot-button');
+  screenshotButton.remove();
 }
