@@ -35,14 +35,14 @@ app.use(compression());
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 3000;
 
-app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }), cors(corsOptions));
+app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
 
-app.get("/test", (req, res) => {
+app.get("/test", cors(corsOptions), (req, res) => {
   console.log("test");
   res.send("hello");
 });
 
-app.post("/searchForProduct", limiter, (req, res, next) => {
+app.post("/searchForProduct", cors(corsOptions), limiter, (req, res, next) => {
   let image = req.body.payload.substring(23);
 
   // Creates a client
