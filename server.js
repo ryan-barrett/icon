@@ -25,7 +25,10 @@ app.use(compression());
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 3000;
 
-app.use(bodyParser.json(), bodyParser.urlencoded({ extended: true }));
+app.use(
+  bodyParser.json({ limit: '50mb', extended: true }),
+  bodyParser.urlencoded({ limit: '50mb', extended: true })
+);
 
 app.get('/test', (req, res) => {
   console.log('test');
