@@ -118,7 +118,6 @@ function setListeners(screenshotButton, video, canvas) {
 }
 
 function displayResults(results) {
-  clearVideo();
   const container = document.querySelector('.content-container');
   const resultsList = document.createElement('div');
   resultsList.classList.add('grid-container');

@@ -17,17 +17,6 @@ const limiter = rateLimit({
 });
 
 app.use(cors());
-//only allow requests from icon
-// const whitelist = ['https://ryan-barrett.github.io'];
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
 
 //compress all responses
 app.use(compression());
@@ -44,7 +33,8 @@ app.get('/test', (req, res) => {
 });
 
 app.post('/searchForProduct', limiter, (req, res, next) => {
-  if (req.get('host') === 'https://ryan-barrett.github.io') {
+  //only allow requests from icon
+  if (req.get('origin') === 'https://ryan-barrett.github.io') {
     let image = req.body.payload.substring(23);
     // Creates a client
     const client = new vision.ImageAnnotatorClient();
@@ -62,7 +52,7 @@ app.post('/searchForProduct', limiter, (req, res, next) => {
         res.send(err);
       });
   } else {
-    res.send('cors protected');
+    res.send(req.get('origin'));
   }
 });
 
