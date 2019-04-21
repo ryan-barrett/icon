@@ -17,7 +17,7 @@ const limiter = rateLimit({
 });
 
 //only allow requests from icon
-const whitelist = ['https://ryan-barrett.github.io/icon/'];
+const whitelist = ['https://ryan-barrett.github.io'];
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
