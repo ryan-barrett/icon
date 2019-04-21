@@ -108,6 +108,12 @@ function setListeners(screenshotButton, video, canvas) {
           const loader = document.querySelector('.loader');
           loader.remove();
           displayResults(data);
+          const resultsList = document.querySelectorAll('.grid-item');
+          if (resultsList.length === 0) {
+            alert(
+              'We are currently experiencing issues with some browsers. Please try desktop chrome or android chrome'
+            );
+          }
         })
         .catch(err => {
           alert(err);
@@ -146,12 +152,12 @@ function clearVideo() {
 //throttle frontend requests
 function throttled(delay, fn) {
   let lastCall = 0;
-  return function (...args) {
-    const now = (new Date).getTime();
+  return function(...args) {
+    const now = new Date().getTime();
     if (now - lastCall < delay) {
       return;
     }
     lastCall = now;
     return fn(...args);
-  }
+  };
 }
